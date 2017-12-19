@@ -9,6 +9,8 @@
         gP            = require('gulp-load-plugins')(),
         normalize     = require('node-normalize-scss').includePaths;
 
+  var   shell         = require('gulp-shell');
+
   const gulpWebpack   = require('gulp-webpack'),
         webpack       = require('webpack'),
         webpackConfig = require('./webpack.config.js');
@@ -18,11 +20,6 @@
           mode: {
             symbol: {
               sprite: "../sprite.svg",
-              // render: {
-              //   scss: {
-              //     dest: '../../../../../sass/config/_sprite.scss'
-              //   }
-              // },
               example: {
                 dest: '../tmp/spriteSvgDemo.html' // демо html
               }
@@ -46,6 +43,9 @@
             src:'src/templates/pages/*.pug',
             dest:'dist/'
           },
+          srcTemplates: {
+            src:'src/templates/**/*.pug'
+          },
           svg: {
             src:'src/images/svg/**/*.svg',
             dest:'src/images/img/icons/sprite/'
@@ -64,8 +64,7 @@
           }
         };
 
-//dist
-//pug
+// pug
 
   function templates() {
     return gulp.src(paths.templates.src)
@@ -77,11 +76,12 @@
         };
       })
     }))
-    .pipe(gP.pug())
+    .pipe(gP.pug({ pretty: true }))
     .pipe(gulp.dest(paths.templates.dest))
+    .pipe(browserSync.stream({once: true}));
   };
 
-//styles
+// styles
 
   function styles() {
 
@@ -130,7 +130,7 @@
         .pipe(gulp.dest(paths.scripts.dest));
   }
 
-//img
+// img
 
   function images() {
     return gulp.src(paths.images.src)
@@ -146,7 +146,7 @@
       .pipe(gulp.dest(paths.images.dest))
   };
 
-//svg
+// svg
 
   function svgSpriteBuild() {
     return gulp.src(paths.svg.src)
@@ -179,7 +179,7 @@
     .pipe(gulp.dest(paths.svgSprite.dest));
   }
 
-//fonts
+// fonts
 
   function fonts() {
     return gulp.src(paths.fonts.src)
@@ -194,18 +194,19 @@
       .pipe(gulp.dest(paths.fonts.dest))
   };
 
-//watch
+// watch
 
   function watch() {
-    gulp.watch(paths.templates.src, templates);
+    gulp.watch([paths.templates.src, paths.srcTemplates.src], templates);
     gulp.watch(paths.styles.src, styles);
     gulp.watch([paths.scripts.src, paths.srcScripts.src], scripts);
     gulp.watch(paths.svg.src, svgSpriteBuild);
+    gulp.watch(paths.svgSprite.src, svgSprite);
     gulp.watch(paths.images.src, images);
     gulp.watch(paths.fonts.src, fonts);
   };
 
-//serve
+// serve
 
   function serve() {
     browserSync.init({
@@ -216,22 +217,33 @@
     browserSync.watch(['./dist/*.html', './dist/**/*.*'], browserSync.reload);
   };
 
-//clean
+// clean
 
   function clean() {
     return del('dist')
   };
 
-//export
+// export
 
-  exports.templates = templates;
-  exports.styles = styles;
-  exports.images = images;
-  exports.svgSpriteBuild = svgSpriteBuild;
-  exports.svgSprite = svgSprite;
-  exports.fonts = fonts;
-  exports.clean = clean;
-  exports.watch = watch;
+  exports.templates       = templates;
+  exports.styles          = styles;
+  exports.images          = images;
+  exports.svgSpriteBuild  = svgSpriteBuild;
+  exports.svgSprite       = svgSprite;
+  exports.fonts           = fonts;
+  exports.clean           = clean;
+  exports.watch           = watch;
+
+// folder structure
+
+  gulp.task('src', shell.task([
+    'mkdir "src/sass/common" "src/js/common"',
+    'mkdir "src/templates/common" "src/templates/pages"',
+    'mkdir "src/images/svg" "src/images/img"',
+    'mkdir "src/fonts"',
+    'touch "src/sass/main.sass" "src/templates/template.pug" "src/js/app.js"',
+    'echo @import "normalize";>src/sass/main.sass'
+  ]))
 
 //default
 
