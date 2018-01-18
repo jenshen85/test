@@ -7,5 +7,4 @@
 #### How to install builder
 1. clone this repo
 2. npm i
-3. gulp shell
-4. gulp
+3. gulp
