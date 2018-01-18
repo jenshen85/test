@@ -1,0 +1,19 @@
+// Media
+
+@mixin laptop 
+  @media screen and (max-width: $laptop)
+    @content;
+
+@mixin tablets()
+  @media screen and (max-width: $tablets)
+    @content;
+
+
+// @mixin tablets($orientation)
+//   @media screen and (max-width: $tablets) and (orientation: $orientation)
+//     @content;
+
+
+@mixin phones()
+  @media screen and (max-width: $phones)
+    @content;

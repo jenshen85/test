@@ -1,0 +1,37 @@
+.content-wrapp
+  .container
+    .admin-title
+      h2.admin-title__text Страница "Обо мне"
+    ul.skills__item_list
+      each skill,index in skillsTitle
+        li.skills__item
+          h3.skills__item_title #{skill}
+          ul.skills__item_name
+            case index
+              when 0
+                each name in skillFront
+                  li.item__name_row
+                    .scill-name #{name.name}
+                    input.skills-number(type="text" value=`${ name.number }`)
+                    .skill-percent %
+                    button.button-remove(type="button") Удалить скил
+              when 1
+                each name in skillWork
+                  li.item__name_row
+                    .scill-name #{name.name}
+                    input.skills-number(type="text" value=`${ name.number }`)
+                    .skill-percent %
+                    button.button-remove(type="button") Удалить скил
+              when 2
+                each name in skillBack
+                  li.item__name_row
+                    .scill-name #{name.name}
+                    input.skills-number(type="text" value=`${ name.number }`)
+                    .skill-percent %
+                    button.button-remove(type="button") Удалить скил
+          .button-skill
+            label(for="")
+              input.input.button-add__input(placeholder="Название" type="text" id="")
+            button.button-add(type="button") Добавить скил
+    button.button.skills-button( type="submit" ) Сохранить
+  include ../common/_modal.pug

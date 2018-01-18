@@ -1,4 +1,3 @@
-'use strict';
+const activTabs = require('./common/_tabs')
 
-console.log('hello web!');
-
+activTabs();

@@ -237,6 +237,7 @@
 // folder structure
 
   gulp.task('src', shell.task([
+    'mkdir "src/sass" "src/js" "src/templates" "src/images"',
     'mkdir "src/sass/common" "src/js/common"',
     'mkdir "src/templates/common" "src/templates/pages"',
     'mkdir "src/images/svg" "src/images/img"',

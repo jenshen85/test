@@ -1,4 +1,4 @@
-## Gulp-webpack-build
+## admin-panel for portfolio project
 
 #### Check out that you've already install
 * npm 5
