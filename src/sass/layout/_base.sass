@@ -1,29 +1,22 @@
 html
   font-size: 16px
 
-  // @include laptop
-  //   font-size: 15px
+  @include notebook ()
+    font-size: 15px
 
-  // @include tablets ()
-  //   font-size: 14px
+  @include desktop ()
+    font-size: 14px
 
-  // @include tablets (landscape)
-  // font-size: 14px
-
-  // @include phones ()
-  //   font-size: 13px
-
-  // @include phones (landscape)
-  // font-size: 13px
+  @include laptop ()
+    font-size: 13px
 
 body
   margin: 0
   padding: 0
-  font-family: 'roboto', Arial, Helvetica, sans-serif
-  font-size: 16px
+  font-family: 'MyriadPro', Arial, Helvetica, sans-serif
+  font-size: 18px
   line-height: 1.42
   position: relative
-  color: $text
   min-width: 320px
 
 *, *::before, *::after
@@ -35,12 +28,6 @@ body, html
   max-width: 100%
   min-height: 550px
   // overflow-x: hidden;
-
-.wrapper
-  height: 100vh
-  display: flex
-  flex-direction: column
-  position: relative
 
 .visuallyhidden:not(:focus):not(:active)
   position: absolute
@@ -65,5 +52,9 @@ a
   text-decoration: none
 
 h1, h2, h3, h4, h5, h6
+  margin: 0
+  padding: 0
+
+p
   margin: 0
   padding: 0

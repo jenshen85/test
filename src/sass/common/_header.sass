@@ -1,29 +1,93 @@
 .header
   width: 100%
-  background: $green
+  background: #000000
 
 .header-container
   display: flex
   align-items: center
-  padding: 30px 0
+  padding: 10px 30px
 
-.title_text
-  font-family: 'roboto', serif
-  font-size: 28px
-  font-weight: 500
-  color: #fff
+  @include laptop()
+    flex-direction: column
+    align-items: center
+  
+  @include tablets()    
+    margin-bottom: 54px
 
-.admin-header__left
+.hader__logo
+  margin-right: 77px
+
+  @include laptop()
+    margin-right: 0px
+    margin-bottom: 30px
+
+.logo
+  display: flex
+  align-items: center
+
+.logo__img_one, .logo__img_two
+  display: inline-block
+  vertical-align: middle
+
+.header__desc
   margin-right: auto
+  
+  @include laptop()
+    margin-right: 0
+    margin-bottom: 30px
 
-.admin-header__link
+  @include phones()
+    display: none
+
+.header__desc_list
+  display: flex
+
+.header__desc_item
+  margin-right: 30px
+
+  &:last-child
+    margin-right: 0px
+
+.header__desc_img, .header__desc_text
+  display: inline-block
+  vertical-align: middle
+
+.header__desc_img
+  width: 32px
+  height: 32px
+
+.desc__img_icon
+  height: 100%
+
+.header__desc_wrap
+  display: flex
+  flex-direction: row
+
+.header__desc_text
+  font-family: 'roboto', serif
+  font-size: 14px
+  font-weight: 400
+  color: $hedertext
+
+.header-button
+  padding: 10px 13px
+  background: #39d84c
+  border: transparent
+  border-radius: 21px
+  cursor: pointer
+  transition: all .5s
   font-family: 'roboto', serif
   font-size: 16px
   font-weight: 500
-  color: rgba(255, 255, 255, .8)
-  transition: all .5s
-  text-decoration: underline
+  color: #fff
+  white-space: nowrap
 
   &:hover
-    color: rgba(255, 255, 255, 1)
-    
+    background: #30be41
+
+.header-button__wrapp
+  display: flex
+  align-items: center
+
+.header-button__img
+  margin-right: 11px

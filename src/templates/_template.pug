@@ -11,25 +11,5 @@ html(lang="en")
     link(rel="stylesheet", href="./assets/css/main.min.css")
     title Admin Panel
   body
-    .wrapper
-      header.header.admin-header
-        .container.header-container
-          .admin-header__left
-            .admin-header__title
-              h2.title_text Панель администрирования
-          .admin-header__right
-            .admin-header__link-wrap
-              a.admin-header__link(href="http://") Вернуться на сайт
-      .admin-tabs
-        nav.nav
-          ul.admin-tabs__list#admin-tabs__list
-            each tab, index in tabs
-              li.admin-tabs__item
-                if index === 0
-                  a(class="admin-tabs__link admin-tabs__link--active" href="") #{ tab.tab }
-                else
-                  a(class="admin-tabs__link" href="") #{ tab.tab }                  
-      main.main
-        .main-content
-          block content
+    block content
     script(src="./assets/js/bundle.js")

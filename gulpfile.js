@@ -86,7 +86,22 @@
   function styles() {
 
     var plugins = [
-      pixelsToRem()
+      pixelsToRem({
+        exclude: [
+          "border",
+          "border-radius",
+          "background-position",
+          "left",
+          "top",
+          "right",
+          "bottom",
+          // "width",
+          // "height",
+          "padding",          
+          "margin"
+        ],
+        mediaQueries: false
+      })
     ];
     return gulp.src([paths.styles.src])
       .pipe(gP.plumber({

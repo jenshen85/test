@@ -1,6 +1,125 @@
 extends ../_template.pug
 
 block content
-  include ../common/tab_one.pug
-  include ../common/tab_two.pug
-  include ../common/tab_free.pug
+  .wrapper
+    header.header
+      .container.header-container
+        .hader__logo
+          .logo
+            .logo__img_one
+              img(src="./assets/img/icon/logoImg.png", alt="logo", srcset="")
+            .logo__img_two
+              img(src="./assets/img/icon/logoImgText.png", alt="siver fruits", srcset="")
+        .header__desc
+          ul.header__desc_list
+            li.header__desc_item
+              .header__desc_wrap
+                .header__desc_img
+                  img.desc__img_icon(src="./assets/img/icon/dnkIcon.png", alt="icon", srcset="")
+                .header__desc_text 
+                  .header__desc_row Сбалансированный
+                  .header__desc_row состав
+            li.header__desc_item
+              .header__desc_wrap
+                .header__desc_img
+                  img.desc__img_icon(src="./assets/img/icon/handIcon.png", alt="icon", srcset="")
+                .header__desc_text 
+                  .header__desc_row Одобрен
+                  .header__desc_row специалистами
+            li.header__desc_item
+              .header__desc_wrap
+                .header__desc_img
+                  img.desc__img_icon(src="./assets/img/icon/clockIcon.png", alt="icon", srcset="")
+                .header__desc_text
+                  .header__desc_row Быстрый
+                  .header__desc_row результат
+        button.button.header-button(type="button" id="header-button")
+          .header-button__wrapp
+            .header-button__img
+              img.header-button__img_icon(src="./assets/img/icon/phone.png", alt="", srcset="")
+            .header-button__text Заказать звонок
+    section.section.hero
+      .container.hero-container
+        .hero-content
+          .hero-title
+            h3.hero-title__title Тестовое задание по верстке
+            .hero-title__line
+              img.line-icon(src="./assets/img/icon/line.png", alt="")
+            .hero-title__text Lorem ipsum dolor sit 
+              span.hero-title__text_yellow Silver fruits Fruits
+              |  consectetuer adipiscing elit
+          .hero__product
+            .hero__product_img
+              img.product_img-icon(src="./assets/img/elem/products.png", alt="", srcset="")
+        .hero-form
+          .hero-form__pos
+            .hero-form_container
+              .hero-form__label
+                .label__text Акция
+                .triangle
+                  .triangle-one
+              h3.hero-form__title Успей заказать
+              span.title__text с
+              span.title-text_move 70% скидкой!
+              form.form(action="" id="hero-form")
+            .hero-form__cost
+              .cost-one 990₽
+              .cost-two
+                .cost-two__text обычная цена
+                .cost-two__price 3300 руб.
+            .hero-form__form
+              form.form(action="", method="post" id="hero-form")
+                label(for="name").form__fields
+                  span.form__fields_title Имя
+                  input.form__fields_input(type="text" id="name")
+                label(for="tel").form__fields
+                  span.form__fields_title Телефон
+                  input.form__fields_input(type="text" id="tel")
+                button.hero-form__button(type="button" id="hero-form__button") Тест Тест Тест Тест
+    section.section.main-content
+      .main-content__content
+        .container.main-content__content_container
+          .main-content__desc
+            .desc__title Cum socii
+              span.desc__title_yellow s natoque 
+            .desc__text
+              p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                |  Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                |  nascetur ridiculus mus.
+              p Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                |  Aenean commodo ligula eget dolor. Aenean massa.
+                |  Cum sociis natoque penatibus et magnis dis parturient montes,
+                |  nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                |  pretium quis, sem.
+          .main-content__img
+            img.main-content__img_icon(src="./assets/img/elem/molecule.png", alt="", srcset="")
+      .main-content__product
+        .container.main-content__product_container
+          .product__title
+            h3.product__title_text Donec pede justo
+          ul.product__list
+            li.product__item
+              .product__item_img
+                img.product__item_img-icon(src="./assets/img/elem/drop.png", alt="", srcset="")
+              .product__item_desc
+                h4.product__item_title Fringilla vel
+                .product__item_text Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+            li.product__item
+              .product__item_img
+                img.product__item_img-icon(src="./assets/img/elem/aliquet.png", alt="", srcset="")
+              .product__item_desc
+                h4.product__item_title Aliquet
+                .product__item_text Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+            li.product__item
+              .product__item_img
+                img.product__item_img-icon(src="./assets/img/elem/coffee.png", alt="", srcset="")
+              .product__item_desc
+                h4.product__item_title Vulputate eget arcu
+                .product__item_text Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
+            li.product__item
+              .product__item_img
+                img.product__item_img-icon(src="./assets/img/elem/apricot.png", alt="", srcset="")
+              .product__item_desc
+                h4.product__item_title Enim justo
+                .product__item_text Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
+
